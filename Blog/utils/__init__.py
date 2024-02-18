@@ -1,0 +1,1 @@
+from .viewCounter import blog_view_cout

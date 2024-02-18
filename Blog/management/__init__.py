@@ -1,0 +1,2 @@
+
+commands = ['populate_blogs']

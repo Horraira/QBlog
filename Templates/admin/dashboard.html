@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}Admin Dashboard{% endblock %}
+
+{% block content %}
+<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+<div class="row">
+    <div class="col-md-8 offset-md-2">
+        <h2 class="my-4 text-center">Percentage of blogs in each category</h2>
+        <div id="pieChart" style="height: 100px;"></div>
+    </div>
+
+    <script>
+        window.onload = function () {
+            var options = {
+                series: {{ data|safe }},
+                labels: {{ labels|safe }},
+                chart: {
+                    type: 'pie',
+                },
+            };
+    
+            var chart = new ApexCharts(document.querySelector("#pieChart"), options);
+            chart.render();
+        };
+    </script>
+</div>
+{% endblock %}
+
