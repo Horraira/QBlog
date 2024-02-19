@@ -1,7 +1,7 @@
 # Django Setup
 
 ## Requirements
-- 3.8 <= Python version <= 3.10
+- 3.8 <= Stable Python version 
 - Elasticsearch Server Running
 
 ## Change Elasticsearch auth info
