@@ -53,7 +53,11 @@ def bookmark_add(request, pk):
 @api_view(['GET'])
 def bookmarks_list(request):
     if request.method == 'GET':
-        bookmarks = Bookmars.objects.filter(user=request.user)
+        try:
+            user = request.user
+        except User.DoesNotExist:
+            return Response({"message": "User not found"}, status=status.HTTP_404_NOT_FOUND)
+        bookmarks = Bookmars.objects.filter(user=user)
         serializer = BookmarksSerializer(bookmarks, many=True)
         return Response(serializer.data)
     else:
