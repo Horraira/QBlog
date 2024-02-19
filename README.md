@@ -56,11 +56,11 @@ if any package conflicts arise, install
 
 # Django urls
 ## Information urls
-- [@Swagger](http://127.0.0.1:8000/)
-- [@Silk](http://127.0.0.1:8000/)
+- [@Swagger](http://127.0.0.1:8000/swagger)
+- [@Silk](http://127.0.0.1:8000/silk)
 ## Admin Page
 - [@Dashboard](http://127.0.0.1:8000/)
-- [@Blog List](http://127.0.0.1:8000/)
+- [@Blog List](http://127.0.0.1:8000/blogList)
 
 # React urls
 😊 Feel free to travel after registration and login
