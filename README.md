@@ -54,11 +54,13 @@ if any package conflicts arise, install
   npm start
 ```
 
-# Functional Pages
+# Django urls
+## Information urls
+- [@Swagger](http://127.0.0.1:8000/)
+- [@Silk](http://127.0.0.1:8000/)
 ## Admin Page
 - [@Dashboard](http://127.0.0.1:8000/)
 - [@Blog List](http://127.0.0.1:8000/)
 
-# Author Page
-# Visitor Page
-
+# React urls
+😊 Feel free to travel after registration and login
