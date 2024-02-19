@@ -41,4 +41,4 @@ class Command(BaseCommand):
                 updated_at=updated_at
             )
 
-        self.stdout.write(self.style.SUCCESS('Successfully populated Blog model with 2000 dummy data'))
+        self.stdout.write(self.style.SUCCESS('Successfully populated Blog model with 50 dummy data'))
