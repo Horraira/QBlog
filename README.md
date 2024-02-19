@@ -15,7 +15,7 @@ ELASTICSEARCH_DSL = {
 }
 ```
 
-## Create venv
+## Create and activate venv
 ```bash
   python -m venv env
 ```
@@ -28,11 +28,37 @@ if any package conflicts arise, install
 ```bash
   pip install -r base_requirements.txt
 ```
-## Run server
+## Migrate and Populate the database
 ```bash
-  python manage.py runserver
-```
-## Populate the database
-```bash
+  python manage.py migrate
   python manage.py populate_blogs
 ```
+## Run server
+```bash
+  # should run on http://127.0.0.1:8000/
+  python manage.py runserver
+```
+
+# React Setup
+
+## Change directory
+```bash
+  # on a new terminal
+  cd QBlog\blog-frontend
+```
+
+## Install and Run
+```bash
+  npm i
+  # should run on http://127.0.0.1:3000
+  npm start
+```
+
+# Functional Pages
+## Admin Page
+- [@Dashboard](http://127.0.0.1:8000/)
+- [@Blog List](http://127.0.0.1:8000/)
+
+# Author Page
+# Visitor Page
+
