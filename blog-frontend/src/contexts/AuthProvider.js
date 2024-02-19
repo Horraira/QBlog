@@ -274,6 +274,30 @@ const AuthProvider = ({ children }) => {
         }
     }
 
+    const bookMarkBlog = async (id) => {
+        try {
+            const response = await fetch(`http://127.0.0.1:8000/user/bookmark/${id}/`,
+                {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                        "Authorization": `Bearer ${localStorageUser?.access}`
+                    }
+                });
+            if (response.ok) {
+                toast.success("Blog Bookmarked Successfully!");
+            }
+            else {
+                const errorData = await response.json();
+                throw new Error(errorData.message);
+            }
+        }
+        catch (error) {
+            toast.error(error.message || "Blog Bookmark Failed! Please try again");
+            console.log(error.message);
+        }
+    }
+
     const logOutUser = () => {
         setUser(null);
         localStorage.removeItem("user");
@@ -319,7 +343,8 @@ const AuthProvider = ({ children }) => {
         visitorBlog,
         fetchVisitorBlog,
         loading,
-        searchVisitorBlog
+        searchVisitorBlog,
+        bookMarkBlog
     };
 
     return (

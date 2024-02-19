@@ -3,7 +3,7 @@ import { AuthContext } from '../../contexts/AuthProvider';
 import { Link } from 'react-router-dom';
 
 const UserHome = () => {
-    const { visitorBlog, fetchVisitorBlog, loading, searchVisitorBlog } = useContext(AuthContext);
+    const { visitorBlog, fetchVisitorBlog, loading, searchVisitorBlog, bookMarkBlog } = useContext(AuthContext);
     const [page, setPage] = useState(1);
     const [search, setSearch] = useState('');
 
@@ -50,7 +50,7 @@ const UserHome = () => {
                     <div className="mt-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 items-center justify-center gap-3">
                         {visitorBlog?.results?.length > 0 ?
                             visitorBlog?.results?.map((blog, index) => (
-                                <div className="card w-full h-96 bg-base-100 shadow-xl" key={index + 1}>
+                                <div className="card w-full h-96 bg-base-100 shadow-xl relative" key={index + 1}>
                                     <figure><img src={blog?.banner_url} alt={blog?.title} className='h-60 w-full' /></figure>
                                     <div className="card-body">
                                         <h2 className="card-title">
@@ -61,6 +61,13 @@ const UserHome = () => {
                                         <div className="card-actions flex items-end justify-between">
                                             <div className="badge badge-outline">{`Author -  ${blog?.author}`}</div>
                                             <Link to={`/blog/${blog?.id}`} className="btn btn-sm btn-primary">Read More</Link>
+                                        </div>
+                                        <div className='absolute top-2 right-2'>
+                                            <button
+                                                className="btn btn-sm btn-warning text-white"
+                                                onClick={() => bookMarkBlog(blog?.id)}
+                                                disabled={blog?.is_bookmarked ? true : false}
+                                            >{blog?.is_bookmarked ? 'Bookmarked' : 'Add Bookmark'}</button>
                                         </div>
                                     </div>
                                 </div>
