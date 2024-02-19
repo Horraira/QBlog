@@ -39,11 +39,11 @@ def bookmark_add(request, pk):
     except Blog.DoesNotExist:
         return Response({"message": "Blog not found"}, status=status.HTTP_404_NOT_FOUND)
 
-    if Bookmars.objects.filter(user=request.user, blog=blog).exists():
+    if Bookmark.objects.filter(user=request.user, blog=blog).exists():
         return Response({"message": "Already bookmarked"}, status=status.HTTP_400_BAD_REQUEST)
     else:
         try:
-            bookmark = Bookmars(user=request.user, blog=blog)
+            bookmark = Bookmark(user=request.user, blog=blog)
             bookmark.save()
             return Response({"message": "Bookmarked"}, status=status.HTTP_201_CREATED)
         except Exception as e:
@@ -57,7 +57,7 @@ def bookmarks_list(request):
             user = request.user
         except User.DoesNotExist:
             return Response({"message": "User not found"}, status=status.HTTP_404_NOT_FOUND)
-        bookmarks = Bookmars.objects.filter(user=user)
+        bookmarks = Bookmark.objects.filter(user=user)
         serializer = BookmarksSerializer(bookmarks, many=True)
         return Response(serializer.data)
     else:

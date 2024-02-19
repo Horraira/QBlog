@@ -36,7 +36,7 @@ class BlogSerializer(serializers.ModelSerializer):
     def get_is_bookmarked(self, obj):
         try:
             blog = Blog.objects.get(pk=obj.id)
-            if Bookmars.objects.filter(user=self.context['request'].user, blog=blog).exists():
+            if Bookmark.objects.filter(user=self.context['request'].user, blog=blog).exists():
                 return True
             else:
                 return False
@@ -75,7 +75,7 @@ class BlogSearchSerializer(serializers.ModelSerializer):
     def get_is_bookmarked(self, obj):
         try:
             blog = Blog.objects.get(pk=obj.id)
-            if Bookmars.objects.filter(user=self.context['request'].user, blog=blog).exists():
+            if Bookmark.objects.filter(user=self.context['request'].user, blog=blog).exists():
                 return True
             else:
                 return False
@@ -85,7 +85,7 @@ class BlogSearchSerializer(serializers.ModelSerializer):
 class BookmarksSerializer(serializers.ModelSerializer):
     blog = BlogSerializer()
     class Meta:
-        model = Bookmars
+        model = Bookmark
         fields = '__all__'
         read_only_fields = ('user', 'blog')
 
