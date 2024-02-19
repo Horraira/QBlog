@@ -58,3 +58,12 @@ class BlogSearchSerializer(serializers.ModelSerializer):
             return blog.total_views
         except Blog.DoesNotExist:
             return 0
+        
+class BookmarksSerializer(serializers.ModelSerializer):
+    blog = BlogSerializer()
+    class Meta:
+        model = Bookmars
+        fields = '__all__'
+        read_only_fields = ('user', 'blog')
+
+        

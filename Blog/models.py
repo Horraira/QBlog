@@ -51,5 +51,11 @@ class Blog(models.Model):
 
         super().save(*args, **kwargs)
     
+class Bookmars (models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, db_index=True)
+    blog = models.ForeignKey(Blog, on_delete=models.CASCADE, db_index=True)
+    created_at = models.DateTimeField(auto_now_add=True)
 
+    def __str__(self):
+        return f'{self.user} - {self.blog}'
     

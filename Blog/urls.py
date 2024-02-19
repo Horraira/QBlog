@@ -13,5 +13,8 @@ urlpatterns = [
 
     path('visitor/blogs/', views.blog_list),
     path('visitor/blog/<int:pk>/', views.blog_detail),
+
+    path('user/bookmark/<int:pk>/', views.bookmark_add),
+    path('user/bookmark/', views.bookmarks_list),
 ]
 
