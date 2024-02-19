@@ -1,0 +1,8 @@
+django-cors-headers
+django-elasticsearch-dsl
+django-silk
+djangorestframework-simplejwt
+drf-yasg
+faker
+pillow
+pip-chill
