@@ -63,4 +63,4 @@ if any package conflicts arise, install
 - [@Blog List](http://127.0.0.1:8000/blogList)
 
 # React urls
-😊 Feel free to travel after registration and login
+😊 Feel free to explore after registration and login
