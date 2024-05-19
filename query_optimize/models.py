@@ -13,6 +13,7 @@ class Post(models.Model):
     title = models.CharField(max_length=100)
     content = models.TextField()
     author = models.ForeignKey(Author, on_delete=models.CASCADE)
+    # author = models.ManyToManyField(Author)
 
     def __str__(self):
         return self.title

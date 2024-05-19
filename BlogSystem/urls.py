@@ -20,6 +20,7 @@ schema_view = get_schema_view(
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('account/', include('account.urls')),
+    path('query/', include('query_optimize.urls')),
     path('', include('Blog.urls')),
     path('', blogPercentage, name='blog-percentage'),
     path('blogList/', blogList, name='blog-list'),
@@ -32,6 +33,8 @@ urlpatterns = [
     #Authentication
     path('api/token/', jwt_views.TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('api/token/refresh/', jwt_views.TokenRefreshView.as_view(), name='token_refresh'),
+
+    path("__debug__/", include("debug_toolbar.urls")),
 ]
 
 if settings.DEBUG:
