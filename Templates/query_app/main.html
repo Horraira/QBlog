@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}Optimized Query{% endblock %}
+
+{% block content %}
+
+    {% if data %}
+        <ul>
+            {% for item in data %}
+                <li>{{ item }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <h2 class="my-4 text-center">No data available</h2>
+    {% endif %}
+
+{% endblock content %}
