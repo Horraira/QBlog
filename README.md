@@ -63,7 +63,7 @@ if any package conflicts arise, install
 - [@Blog List](http://127.0.0.1:8000/blogList)
 
 # Reference
-- [@JWT Authentication](https://medium.com/django-unleashed/securing-django-rest-apis-with-jwt-authentication-using-simple-jwt-a-step-by-step-guide-28efa84666fe)
+- [@JWT Authentication](https://medium.com/@calebjephuneh/implementing-simple-jwt-authentication-in-django-rest-framework-029d8f6468b5)
 
 
 # React urls
